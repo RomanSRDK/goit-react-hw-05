@@ -1,7 +1,22 @@
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage";
+import MoviesPage from "./pages/MoviesPage";
+import NotFoundPage from "./pages/NotFoundPage";
+
 import "./App.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
