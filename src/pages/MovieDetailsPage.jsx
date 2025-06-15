@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import axios from "axios";
 
 const BASE_URL_IMG = "https://image.tmdb.org/t/p/w300";
-
-// const API_KEY = "39433a43c08eedce3bbfcbb10e9671a9";
 
 function MovieDetailsPage() {
   const [movieInfo, setMovieInfo] = useState(null);
@@ -25,6 +23,8 @@ function MovieDetailsPage() {
 
   return (
     <>
+      <Link to="">Back</Link>
+
       {movieInfo && (
         <>
           <h1>{movieInfo.title}</h1>

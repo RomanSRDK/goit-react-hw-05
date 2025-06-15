@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function MovieCast() {
-  const [castInfo, setCastInfo] = useState(null);
+  const [castInfo, setCastInfo] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function MovieCast() {
       },
     };
 
-    axios.get(url, options).then(({ data }) => setCastInfo(data));
+    axios.get(url, options).then(({ data }) => setCastInfo(data.cast));
   }, [movieId]);
 
   return <></>;

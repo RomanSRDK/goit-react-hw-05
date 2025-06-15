@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function MovieReviews() {
-  const [reviewsInfo, setReviewsInfo] = useState(null);
+  const [reviewsInfo, setReviewsInfo] = useState([]);
 
   const { movieId } = useParams();
 
@@ -16,7 +16,7 @@ function MovieReviews() {
       },
     };
 
-    axios.get(url, options).then(({ data }) => setReviewsInfo(data));
+    axios.get(url, options).then(({ data }) => setReviewsInfo(data.results));
   }, [movieId]);
 
   return <></>;
