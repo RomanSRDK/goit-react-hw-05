@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-
-const API_KEY = "39433a43c08eedce3bbfcbb10e9671a9";
+import MovieList from "../components/MovieList/MovieList";
 
 function HomePage() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect((timeWindow = "day") => {
+  useEffect(() => {
+    const timeWindow = "day";
     setIsLoading(true);
     const url = `https://api.themoviedb.org/3/trending/movie/${timeWindow}?language=en-US`;
     const options = {
@@ -27,16 +26,8 @@ function HomePage() {
   return (
     <>
       {isLoading && <strong>Loading...</strong>}
-      <h1>Tranding today</h1>
-      {trendingMovies.length > 0 && (
-        <ul>
-          {trendingMovies.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`/movies/${id}`}>{title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <h1>Trending today</h1>
+      {trendingMovies.length > 0 && <MovieList movies={trendingMovies} />}
     </>
   );
 }
