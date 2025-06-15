@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import axios from "axios";
 
-const BASE_URL_IMG = "https://image.tmdb.org/t/p/w500";
+const BASE_URL_IMG = "https://image.tmdb.org/t/p/w300";
 
 // const API_KEY = "39433a43c08eedce3bbfcbb10e9671a9";
 
@@ -34,6 +34,17 @@ function MovieDetailsPage() {
           />
         </>
       )}
+
+      <ul>
+        <li>
+          <NavLink to="cast">Cast</NavLink>
+        </li>
+        <li>
+          <NavLink to="reviews">Reviews</NavLink>
+        </li>
+      </ul>
+
+      <Outlet />
     </>
   );
 }
