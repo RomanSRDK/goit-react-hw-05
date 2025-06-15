@@ -1,5 +1,12 @@
 function MoviesPage() {
-  return <div></div>;
+  return (
+    <>
+      <form>
+        <input />
+        <button type="submit">Search</button>
+      </form>
+    </>
+  );
 }
 
 export default MoviesPage;
