@@ -5,7 +5,12 @@
 }
 
 .item {
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.icon {
+  margin-right: 8px;
+  vertical-align: text-top;
 }
 
 .link {
@@ -17,7 +22,6 @@
   transition: color 0.3s ease;
 }
 
-/* Подчёркивание */
 .link::after {
   content: "";
   position: absolute;
@@ -29,7 +33,6 @@
   transition: width 0.4s ease, left 0.4s ease, background-color 0.3s ease;
 }
 
-/* Hover — меняем цвет текста и линии на красный */
 .link:hover {
   color: red;
 }
@@ -38,13 +41,4 @@
   width: 100%;
   left: 0;
   background-color: red;
-}
-
-/* Visited — показываем, что пользователь уже кликал */
-.link:visited {
-  color: purple;
-}
-
-.link:visited::after {
-  background-color: purple;
 }

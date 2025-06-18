@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import axios from "axios";
-
-const BASE_URL_IMG = "https://image.tmdb.org/t/p/w300";
+import MovieView from "../components/MovieView/MovieView";
+import MovieNav from "../components/MovieNav/MovieNav";
 
 function MovieDetailsPage() {
   const [movieInfo, setMovieInfo] = useState(null);
@@ -23,27 +23,10 @@ function MovieDetailsPage() {
 
   return (
     <>
-      <Link to="">Back</Link>
+      {/* <Link to="">Back</Link> */}
 
-      {movieInfo && (
-        <>
-          <h1>{movieInfo.title}</h1>
-          <img
-            src={`${BASE_URL_IMG}${movieInfo.poster_path}`}
-            alt={movieInfo.title}
-          />
-        </>
-      )}
-
-      <ul>
-        <li>
-          <NavLink to="cast">Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews">Reviews</NavLink>
-        </li>
-      </ul>
-
+      {movieInfo && <MovieView movieInfo={movieInfo} />}
+      <MovieNav />
       <Outlet />
     </>
   );

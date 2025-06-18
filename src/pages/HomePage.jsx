@@ -7,7 +7,7 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const timeWindow = "day";
+    const timeWindow = "week";
     setIsLoading(true);
     const url = `https://api.themoviedb.org/3/trending/movie/${timeWindow}?language=en-US`;
     const options = {
@@ -27,7 +27,9 @@ function HomePage() {
     <>
       {isLoading && <strong>Loading...</strong>}
       <h1>Trending today</h1>
-      {trendingMovies.length > 0 && <MovieList movies={trendingMovies} />}
+      {trendingMovies.length > 0 && (
+        <MovieList trendingMovies={trendingMovies} />
+      )}
     </>
   );
 }

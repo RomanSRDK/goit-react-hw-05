@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import styles from "./MovieCast.module.css";
+
+const BASE_URL_IMG = "https://image.tmdb.org/t/p/w200";
 
 function MovieCast() {
   const [castInfo, setCastInfo] = useState([]);
@@ -18,7 +21,24 @@ function MovieCast() {
     axios.get(url, options).then(({ data }) => setCastInfo(data.cast));
   }, [movieId]);
 
-  return <></>;
+  return (
+    <>
+      <ul className={styles.list}>
+        {castInfo.map((actor) => (
+          <li key={actor.id} className={styles.item}>
+            <img
+              src={`${BASE_URL_IMG}${actor.profile_path}`}
+              alt={actor.original_name}
+              className={styles.image}
+            />
+            <p
+              className={styles.text}
+            >{`${actor.character} ⁄ ${actor.name}`}</p>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 export default MovieCast;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import styles from "./MovieReviews.module.css";
 
 function MovieReviews() {
   const [reviewsInfo, setReviewsInfo] = useState([]);
@@ -19,7 +20,18 @@ function MovieReviews() {
     axios.get(url, options).then(({ data }) => setReviewsInfo(data.results));
   }, [movieId]);
 
-  return <></>;
+  return (
+    <>
+      <ul className={styles.list}>
+        {reviewsInfo.map((review) => (
+          <li key={review.id} className={styles.item}>
+            <p className={styles.author}>{review.author}</p>
+            <p className={styles.content}>{review.content}</p>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 export default MovieReviews;
