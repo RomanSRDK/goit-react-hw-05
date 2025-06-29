@@ -6,7 +6,7 @@ import MovieNav from "../components/MovieNav/MovieNav";
 
 function MovieDetailsPage() {
   const location = useLocation();
-  const backLinkRef = useRef(location.state);
+  const backLinkRef = useRef(location.state || "/movies");
 
   const [movieInfo, setMovieInfo] = useState(null);
   const { movieId } = useParams();
