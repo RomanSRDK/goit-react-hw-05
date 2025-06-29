@@ -27,9 +27,7 @@ function HomePage() {
     <>
       {isLoading && <strong>Loading...</strong>}
       <h1>Trending today</h1>
-      {trendingMovies.length > 0 && (
-        <MovieList trendingMovies={trendingMovies} />
-      )}
+      {trendingMovies.length > 0 && <MovieList movies={trendingMovies} />}
     </>
   );
 }
